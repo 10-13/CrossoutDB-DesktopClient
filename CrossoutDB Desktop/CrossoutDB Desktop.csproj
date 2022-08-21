@@ -50,6 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIBaseRequestBuilder\BasicRequest.cs" />
+    <Compile Include="APIBaseRequestBuilder\InitialModels\ApiCategoryEntry.cs" />
+    <Compile Include="APIBaseRequestBuilder\InitialModels\ApiEntryBase.cs" />
+    <Compile Include="APIBaseRequestBuilder\InitialModels\ApiFactionEntry.cs" />
+    <Compile Include="APIBaseRequestBuilder\InitialModels\ApiItemEntry.cs" />
+    <Compile Include="APIBaseRequestBuilder\InitialModels\ApiItemTypeEntry.cs" />
+    <Compile Include="APIBaseRequestBuilder\InitialModels\ApiRarityEntry.cs" />
+    <Compile Include="APIBaseRequestBuilder\InitialModels\ApiRecipeEntry.cs" />
     <Compile Include="APIBaseRequestBuilder\InitialModels\Item.cs" />
     <Compile Include="APIBaseRequestBuilder\InitialModels\PartStatsBase.cs" />
     <Compile Include="APIBaseRequestBuilder\InitialModels\RecipeCounter.cs" />
