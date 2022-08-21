@@ -64,15 +64,25 @@
     <Compile Include="APIBaseRequestBuilder\InitialModels\RecipeModel.cs" />
     <Compile Include="APIBaseRequestBuilder\InitialModels\SingleStat.cs" />
     <Compile Include="APIBaseRequestBuilder\InitialModels\StatAttribute.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\Main\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\Main\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Workbench.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <Compile Include="Routine\RoutineElement.cs" />
+    <Compile Include="Routine\RoutineWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Routine\RoutineWindow.Designer.cs">
+      <DependentUpon>RoutineWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Main\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -84,6 +94,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Routine\RoutineWindow.resx">
+      <DependentUpon>RoutineWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="json1.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
