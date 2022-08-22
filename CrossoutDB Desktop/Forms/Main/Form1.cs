@@ -19,10 +19,7 @@ namespace CrossoutDB_Desktop
         {
             InitializeComponent();
             RoutineAction routine = RoutineAction.GetWaitRoutine(1000);
-            this.AddOverlayWindow(new RoutineWindow(in routine, true, true));
-            this.AddOverlayWindow(new RoutineWindow(in routine, true, true));
-            this.AddOverlayWindow(new RoutineWindow(in routine, true, true));
-            this.UpdatePositions();
+            this.AddOverlayWindow(new RoutineWindow(in routine));
         }
 
     }

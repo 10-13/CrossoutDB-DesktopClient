@@ -27,6 +27,7 @@ namespace UI.Routine
             Routine = routine;
             Routine.OnFineshed += OnRoutineEnd;
             InitializeComponent();
+            label2.Text = Routine.Description;
         }
 
         public RoutineWindow()
@@ -34,12 +35,15 @@ namespace UI.Routine
             Routine = RoutineAction.GetWaitRoutine(1000);
             Routine.OnFineshed += OnRoutineEnd;
             InitializeComponent();
+            label2.Text = Routine.Description;
         }
 
         private void OnRoutineEnd()
         {
             Ended = true;
-            this.BackColor = Color.PaleVioletRed;
+            this.BackColor = Color.DarkOliveGreen;
+            this.label1.BackColor = Color.DarkOliveGreen;
+            this.label2.BackColor = Color.DarkOliveGreen;
             if(CloseWithTimer)
                 Task.Run(() => { try { Thread.Sleep(4000); this.Invoke(new Action(() => { this.Close(); })); } catch (Exception ex) { } });
         }

@@ -9,6 +9,13 @@ namespace Crossout.Web.Models.API.v1
 {
     public class ApiRarityEntry : ApiEntryBase
     {
-
+        [JsonProperty("primarycolor")]
+        public string PrimaryColor { get; set; }
+        
+        [JsonProperty("secondarycolor")]
+        public string SecondaryColor { get; set; }
+        
+        [JsonProperty("order")]
+        public int Order { get; set; }
     }
 }

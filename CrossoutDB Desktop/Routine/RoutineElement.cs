@@ -14,6 +14,7 @@ namespace Routine
         public RoutineAction(Task target,string description)
         {
             target.GetAwaiter().OnCompleted(Finalized);
+            Description = description;
         }
 
         public void Finalized()
