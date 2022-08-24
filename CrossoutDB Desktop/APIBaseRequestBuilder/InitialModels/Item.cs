@@ -106,7 +106,7 @@ namespace Crossout.Model.Items
         public DateTime Timestamp { get; set; }
 
         [JsonProperty("lastUpdateTime")]
-        public string LastUpdateTime => Timestamp.ToString("yyyy-MM-dd HH:mm:ss");
+        public string LastUpdateTime { get; set; }
 
         [JsonProperty("rarityId")]
         public int RarityId { get; set; }

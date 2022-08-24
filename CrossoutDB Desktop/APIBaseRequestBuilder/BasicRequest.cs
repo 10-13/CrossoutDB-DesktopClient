@@ -22,17 +22,6 @@ namespace API.Request
 {
     public static class BsicRequests
     {
-        public enum RequestType
-        {
-            rarities = 1,
-            factions = 2,
-            types = 3,
-            categories = 4,
-            items = 5,
-            item = 6,
-            recipe = 7,
-            market = 9
-        }
         public enum MarketColumn
         {
             sellprice = 1,
@@ -40,35 +29,46 @@ namespace API.Request
             selloffers = 3,
             buyorders = 4
         }
-        public static string RequesString(RequestType type,params int[] ids)
-        {
-            string res = "https://crossoutdb.com/api/v2/" + type.ToString();
-            if(type == RequestType.market)
-            {
-                res += '/';
-                if (ids[0] == 1)
-                    res += MarketColumn.sellprice.ToString();
-                if (ids[0] == 2)
-                    res += MarketColumn.buyprice.ToString();
-                if (ids[0] == 3)
-                    res += MarketColumn.selloffers.ToString();
-                if (ids[0] == 4)
-                    res += MarketColumn.buyorders.ToString();
-                res += '/' + ids[1];
-            }
-            else if((int)type > 5)
-            {
-                res += '/' + ids[0].ToString();
-            }
-            return res;
-        }
 
         public static List<ApiRarityEntry> GetRarity()
         {
-            JsonSerializerSettings settings = new JsonSerializerSettings();
+            List<ApiRarityEntry> apiRarityEntries = JsonConvert.DeserializeObject<List<ApiRarityEntry>>(new WebClient().DownloadString("https://crossoutdb.com/api/v2/rarities"));
+            return apiRarityEntries;
+        }
 
-            //List<ApiRarityEntry> apiRarityEntries = JsonConvert.DeserializeObject<List<ApiRarityEntry>>(new WebClient().DownloadString(""))
-            return null;
+        public static List<ApiFactionEntry> GetFactions()
+        {
+            List<ApiFactionEntry> apiRarityEntries = JsonConvert.DeserializeObject<List<ApiFactionEntry>>(new WebClient().DownloadString("https://crossoutdb.com/api/v2/factions"));
+            return apiRarityEntries;
+        }
+
+        public static List<ApiItemTypeEntry> GetItemTypes()
+        {
+            List<ApiItemTypeEntry> apiRarityEntries = JsonConvert.DeserializeObject<List<ApiItemTypeEntry>>(new WebClient().DownloadString("https://crossoutdb.com/api/v2/types"));
+            return apiRarityEntries;
+        }
+        public static List<ApiCategoryEntry> GetCategories()
+        {
+            List<ApiCategoryEntry> apiRarityEntries = JsonConvert.DeserializeObject<List<ApiCategoryEntry>>(new WebClient().DownloadString("https://crossoutdb.com/api/v2/categories"));
+            return apiRarityEntries;
+        }
+
+        public static Item GetItem(string id)
+        {
+            Item Item = JsonConvert.DeserializeObject<Item>(new WebClient().DownloadString("https://crossoutdb.com/api/v2/item/" + id));
+            return Item;
+        }
+
+        public static Item[] GetItems(string query = "",string rarity = "",string faction = "",string category = "")
+        {
+            Item[] Items = JsonConvert.DeserializeObject<Item[]>(new WebClient().DownloadString("https://crossoutdb.com/api/v2/items?query=" + query + "&rarity=" + rarity + "&faction="  + faction + "&category=" + category));
+            return Items;
+        }
+
+        public static RecipeItem GetRecipe(string id)
+        {
+            RecipeItem recipe = JsonConvert.DeserializeObject<RecipeItem>(new WebClient().DownloadString("https://crossoutdb.com/api/v2/recipe/" + id));
+            return recipe;
         }
     } 
 }
