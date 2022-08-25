@@ -67,4 +67,8 @@ namespace UI.Workbench
         Size Size { get; set; }
         event FormClosedEventHandler CloseAction;
     }
+    namespace Funcionaloty
+    {
+        public delegate bool Load_Function(string FileName);
+    }
 }
